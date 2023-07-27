@@ -53,14 +53,14 @@ pipeline {
                 )
             }
         }
-        stage('SmokeTest'){
+        stage('SmokeTest') {
             when {
                 branch 'master'
             }
             steps {
                 script {
                     sleep (time: 5)
-                    def response = HttpRequest (
+                    def response = httpRequest (
                         url: "http://$KUBE_MASTER_IP:8081",
                         timeout: 30
                     )
